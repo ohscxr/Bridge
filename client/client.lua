@@ -74,11 +74,21 @@ function GetPlayerData()
             crypto = playerData.money['crypto']
         }
 
+    elseif Framework == "OX" then
+        --todo: imeplement ox_core
     else
-        -- Other framework bridges
+        -- Other frameworks
     end
-
 
     return data
 end
 
+function HasItem(item)
+    if Inventory == "ox_inventory" then
+        local ox_inventory = exports.ox_inventory
+        local count = ox_inventory:Search('count', item, nil)
+        return count >= 1
+    elseif Inventory == "qb-inventory" then
+        return exports['qb-inventory']:HasItem(item, 1)
+    end
+end
