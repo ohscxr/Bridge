@@ -26,8 +26,6 @@ function GetPlayerData()
         end
 
         data.accounts = accounts
-
-
     elseif Framework == "QB" then
         local playerData = Core.Functions.GetPlayerData()
 
@@ -73,7 +71,6 @@ function GetPlayerData()
             bank = playerData.money['bank'],
             crypto = playerData.money['crypto']
         }
-
     elseif Framework == "OX" then
         --todo: imeplement ox_core
     else
