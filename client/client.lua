@@ -1,3 +1,5 @@
+
+--- This function requests PlayerData from the determined framework, returning a table of data.
 function GetPlayerData()
     local data = {}
 
@@ -72,7 +74,15 @@ function GetPlayerData()
             crypto = playerData.money['crypto']
         }
     elseif Framework == "OX" then
-        --todo: imeplement ox_core
+        local player = Core.getPlayer()
+
+        data.identifier = player.charId
+        data.name = player.get('name')
+        data.dob = player.get('dateOfBirth')
+        data.gender = player.get('gender')
+
+        local activeGroup = player.get('activeGroup')
+        print(json.encode(activeGroup), {indent = true})
     else
         -- Other frameworks
     end

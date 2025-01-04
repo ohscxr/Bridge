@@ -10,6 +10,7 @@ elseif GetResourceState('qbx_core') == 'started' then
     Framework = 'QBX'
 elseif GetResourceState('ox_core') == 'started' then
     Framework = "OX"
+    Core = require '@ox_core/lib/init'
 end
 
 if GetResourceState('ox_inventory') == 'started' then
